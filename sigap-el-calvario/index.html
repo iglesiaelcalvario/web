@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<title>SIGAP — Iglesia Cristiana El Calvario</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpath%20fill%3D%27%23E8720C%27%20d%3D%27M50%208%20C55%2022%2060%2030%2068%2036%20C62%2034%2058%2038%2056%2044%20C60%2040%2064%2042%2066%2048%20C58%2046%2052%2056%2052%2064%20C52%2072%2048%2080%2040%2084%20C46%2076%2044%2068%2038%2062%20C34%2066%2034%2072%2036%2078%20C28%2072%2026%2060%2032%2050%20C24%2056%2022%2066%2026%2076%20C16%2066%2016%2048%2026%2036%20C24%2042%2026%2046%2030%2048%20C28%2036%2036%2024%2050%208Z%27%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<noscript>
+  <p style="padding:24px;font-family:sans-serif">Este prototipo necesita JavaScript activado para funcionar.</p>
+</noscript>
+
+<!-- ============ INICIAR SESIÓN (primera y única pantalla pública) ============ -->
+<div class="login" id="vista-login">
+  <div class="login-card">
+    <div class="brand-lockup">
+      <span class="logo" data-logo></span>
+      <div>
+        <div class="iglesia" data-iglesia></div>
+        <div class="sistema">SIGAP: Sistema de Información para la Gestión Administrativa y Pastoral</div>
+      </div>
+    </div>
+
+    <h1>Iniciar sesión</h1>
+    <p class="sub">Ingresa con el usuario que te asignó el administrador.</p>
+
+    <div class="aviso-caja" id="login-aviso" aria-live="polite"></div>
+
+    <form id="form-login" novalidate>
+      <div class="field">
+        <label for="l-usuario">Usuario</label>
+        <input class="control" id="l-usuario" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Escribe tu usuario">
+      </div>
+      <div class="field">
+        <label for="l-clave">Contraseña</label>
+        <div class="pass">
+          <input class="control" id="l-clave" type="password" autocomplete="current-password" placeholder="Escribe tu contraseña">
+          <button type="button" class="pass-toggle" data-accion="ver-clave" aria-controls="l-clave" aria-pressed="false">Mostrar</button>
+        </div>
+      </div>
+      <div class="login-extra">
+        <label class="check"><input type="checkbox" id="l-recordar"> Recordarme</label>
+        <button type="button" class="link" data-accion="olvide">¿Olvidaste tu contraseña?</button>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Ingresar</button>
+    </form>
+
+    <p class="login-nota">¿No tienes usuario? Solicítalo a un administrador de la iglesia.</p>
+
+    <details class="demo">
+      <summary>Cuentas de prueba</summary>
+      <p>Solo para la demostración: cada cuenta entra con un cargo distinto.</p>
+      <div class="demo-list" id="demo-list"></div>
+    </details>
+  </div>
+</div>
+
+<!-- ============ APLICACIÓN (después de iniciar sesión) ============ -->
+<div class="app" id="vista-app" hidden>
+  <a class="skip" href="#main" data-accion="saltar">Saltar al contenido</a>
+  <aside class="rail">
+    <div class="rail-brand">
+      <span class="logo" data-logo></span>
+      <div>
+        <strong>SIGAP</strong>
+        <small data-iglesia></small>
+      </div>
+    </div>
+    <nav class="nav" id="nav" aria-label="Campos de tu cargo"></nav>
+    <div class="rail-user">
+      <div class="nombre" id="rail-nombre"></div>
+      <div class="rol" id="rail-rol"></div>
+      <button class="btn btn-small" type="button" data-accion="mi-clave">Cambiar mi clave</button>
+      <button class="btn btn-small" type="button" data-accion="salir">Cerrar sesión</button>
+    </div>
+  </aside>
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<!-- ============ INDICADOR DE ALABANZA (de la beta) ============ -->
+<button class="np" id="np" type="button" data-accion="musica" aria-pressed="true">
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span id="np-label">Alabanza en vivo</span>
+</button>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
